@@ -1,0 +1,42 @@
+Declaration
+itemName String
+itemCode, totalItems, itemPrice, totalPrice, paymentMoney, changeMoney, temp Integer
+
+Description
+BEGIN
+
+INITIALIZE itemName to ""
+INITIALIZE itemCode, totalItems, itemPrice, totalPrice, paymentMoney, changeMoney, temp to 0
+
+WHILE calculating totalPrice:
+    WRITE "Insert item code: "
+    READ itemCode
+    IF itemCode is not exist:
+        THEN WRITE "item code not found!"
+        END IF
+    DISPLAY itemName to customer
+    WRITE "Insert total item: "
+    READ totalItems
+    IF totalItems is less than 0:
+        THEN WRITE "total item must be equal or more than 0!"
+        END IF
+    READ itemPrice
+    multiply itemPrice and totalItems to get total price and save it to temp
+    change the value of totalPrice by adding totalPrice with temp
+    DISPLAY totalPrice to customer
+    IF done calculating:
+        THEN END IF
+        END WHILE
+
+WHILE calculating payment:
+    DISPLAY totalPrice to customer
+    WRITE "Insert the paymentMoney: "
+    READ paymentMoney
+    IF paymentMoney is less than totalPrice:
+        THEN WRITE "the payment money is not enough!"
+        END IF
+    substract paymentMoney with totalPrice and save the value to moneyChange
+    DISPLAY moneyChange to customer
+    END WHILE
+
+END
